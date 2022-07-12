@@ -31,8 +31,8 @@ class userController extends Controller
 
         try
         {
-            User::created($request->all());
-            Alert::success('Exitoso', 'usuario guardado correctamente');
+            User::create($request->all());
+            //Alert::success('Exitoso', 'usuario guardado correctamente');
             Alert::toast('usuario guardado exitosamente', 'success');
             return redirect()->route('administrador.users.index');
         }
@@ -50,15 +50,25 @@ class userController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('administrador.users.edit',compact('user'));
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        try
+        {
+
+            $user->update($request->all());
+            Alert::toast('usuario editado exitosamente', 'success');
+            return redirect()->route('administrador.users.index');
+
+        }catch(Exception $e)
+        {
+
+        }
     }
 
     public function destroy(User $user)

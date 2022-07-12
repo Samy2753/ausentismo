@@ -20,3 +20,7 @@ Route::middleware(['auth:sanctum','verified'])->get('/',[Homecontroller::class,'
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
