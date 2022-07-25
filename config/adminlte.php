@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => '',
-    'title_prefix' => 'Ausentismo /',
+    'title' => 'SG-SST',
+    'title_prefix' => 'SG-SST',
     'title_postfix' => '',
 
     /*
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Modulo Ausentismo</b>',
+    'logo' => '<b>Ausentismo</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -225,36 +225,55 @@ return [
     */
 
     'menu' => [
-        ['header' => 'ADMINISTRACION'],
+        // Navbar items:
+        ['header' => 'ADMINISTRACIÓN'],
         [
             'text' => 'Usuarios',
             'route'  => 'administrador.users.index',
             'icon' => 'fas fa-fw fa-user',
-            'active'=>['administrador/users*']
+            'active'=> ['administrador/users*'],
+            'can' => 'administrador.users.index',
+            'icon_color' =>'blue'
         ],
         [
-            'text' => 'Registro de empleados',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-users',
-        ],
-        [
-            'text' => 'Registro de ausentismo',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-clipboard-list',
+            'text' => 'Roles',
+            'route'  => 'administrador.roles.index',
+            'icon' => 'fas fa-users fa-fw',
+            'active'=> ['administrador/roles*'],
+            //'can' => 'administrador.roles.index',
+            'icon_color' =>'green'
         ],
 
+
+
+         ['header' => 'REGISTRO DE EMPLEADOS'],
         [
-            'text' => 'Calculo incapacidad',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-percentage',
+            'text' => 'Empleados',
+            'route'  => 'empleado.employees.index',
+            'active'=> ['Empleado/employees*'],
+            'icon' => 'fas fa-glasses',
+            'icon_color' =>'yellow'
         ],
+        ['header' => 'AUSENTISMO'],
+
         [
-            'text' => 'Informe de ausentismo',
+            'text' => 'Registro ausentismo',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-file-invoice',
+            'icon' => 'fas fa-info-circle',
+            'icon_color' =>'red'
+        ],
+
+        ['header' => 'REPORTES'],
+
+        [
+            'text' => 'Generación de reportes',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-list-alt',
+            'icon_color' =>'cyan'
         ],
 
     ],
+
 
     /*
     |--------------------------------------------------------------------------

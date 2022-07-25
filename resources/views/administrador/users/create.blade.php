@@ -3,19 +3,20 @@
 @section('title', 'Usuarios')
 
 @section('content_header')
-<h3> Crear usuario</h3>
+<h3>Crear usuario</h3>
+
 @stop
 
 @section('content')
-<div class="card">
-    <div class="card-body">
-        {!! Form::open(['route'=>'administrador.users.store']) !!}
-        @include('administrador.users.partials.form')
-        {!! Form::submit('Crear usuario',['class'=>'btn btn-primary btn-sm']) !!}
-        {!! Form::close() !!}
+    <div class="card">
+        <div class="card-body">
+            {!! Form::open(['route' => 'administrador.users.store']) !!}
+                @include('administrador.users.partials.form')
 
+                {!! Form::submit('Crear usuario',['class' =>'btn btn-primary btn-md']) !!}
+                {!! Form::close() !!}
+        </div>
     </div>
-</div>
 @stop
 
 @section('css')

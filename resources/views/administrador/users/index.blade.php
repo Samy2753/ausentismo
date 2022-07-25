@@ -3,7 +3,10 @@
 @section('title', 'Usuarios')
 
 @section('content_header')
-<a href="{{route('administrador.users.create')}}" class="btn btn-secondary btn-sm float-rignt">Crear usuario</a>
+@can('administrador.users.create')
+    <a class="btn btn-primary" href="{{route('administrador.users.create')}}">Crear usuario</a>
+@endcan
+<h3>Gestion de usuarios</h3>
 @stop
 
 @section('content')
@@ -15,31 +18,30 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Correo</th>
-                    <th ></th>
-                    <th ></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
-            <body>
-                @foreach ( $users as $user )
-                <tr>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
-                    <td width="10px"><a href="{{route('administrador.users.edit',$user)}}"class="btn btn-primary btm-sm">Editar</a></td>
-                    <td width="10px">
-                        <form action="{{route('administrador.users.destroy',$user->id)}}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
+            <tbody>
+                @foreach ($users as $user)
+                    <tr>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td width="10px"><a href="{{route('administrador.users.edit',$user)}}" class="btn btn-primary btn-sm">Editar</a></td>
+                        <td width="10px">
+                            <form action="{{route('administrador.users.destroy',$user)}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
-            </body>
+            </tbody>
         </table>
     </div>
 </div>
 @stop
-
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">

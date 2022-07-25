@@ -3,12 +3,13 @@
 @section('title', 'Inicio')
 
 @section('content_header')
-<h3> Pagina de inicio</h3>
+<h3>Inicio</h3>
 @stop
 
 @section('content')
-    <p>Contenido</p>
+
 @stop
+
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop

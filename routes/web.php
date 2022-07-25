@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Homecontroller;
-
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,11 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum','verified'])->get('/',[Homecontroller::class,'index'])->name('name');
+Route::middleware(['auth:sanctum','verified'])->get('/',[HomeController::class, 'index'])->name('name');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
 
 
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
