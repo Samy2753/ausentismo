@@ -251,7 +251,7 @@ return [
             'text' => 'Empleados',
             'route'  => 'empleado.employees.index',
             'active'=> ['Empleado/employees*'],
-            'icon' => 'fad fa-users-class',
+            'icon' => 'far fa-id-card',
             'icon_color' =>'yellow'
         ],
         ['header' => 'AUSENTISMO'],
@@ -259,7 +259,7 @@ return [
         [
             'text' => 'Registro ausentismo',
             'url'  => 'admin/settings',
-            'icon' => 'fad fa-book-reader',
+            'icon' => 'fas fa-file-alt',
             'icon_color' =>'red'
         ],
 
