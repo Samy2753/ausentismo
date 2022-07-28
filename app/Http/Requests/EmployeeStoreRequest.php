@@ -35,7 +35,7 @@ class EmployeeStoreRequest extends FormRequest
         return [
 
 
-            'FirstName.required'=> 'Debe ingresar Nombres',
+            'Name.required'=> 'Debe ingresar Nombres',
             'LastName.required'=> 'Debe ingresar Apellidos',
             'DocumentType.required'=> 'Debe seleccionar un tipo de documento',
             'DocumentNumber.required'=> 'Numero de documento es obligatorio',

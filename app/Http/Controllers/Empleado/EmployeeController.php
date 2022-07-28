@@ -22,9 +22,9 @@ class EmployeeController extends Controller
 
     public function index()
     {
-     $employees= Employee::where('Status','1')->get();
+    $employees= Employee::where('Status','1')->get();
 
-       return view('empleado.employees.index',compact('employees'));
+    return view('empleado.employees.index',compact('employees'));
     }
 
 
@@ -47,7 +47,7 @@ class EmployeeController extends Controller
 
             Employee::create([
 
-                'FirstName'=> $request->FirstName,
+                'Name'=> $request->Name,
                 'LastName'=> $request->LastName,
                 'DocumentType'=> $request->DocumentType,
                 'DocumentNumber'=> $request->DocumentNumber,
@@ -96,7 +96,7 @@ class EmployeeController extends Controller
 
             $employee->update([
 
-                'FirstName'=> $request->FirstName,
+                'Name'=> $request->Name,
                 'LastName'=> $request->LastName,
                 'DocumentType'=> $request->DocumentType,
                 'DocumentNumber'=> $request->DocumentNumber,

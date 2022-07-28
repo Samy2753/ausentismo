@@ -14,7 +14,7 @@
     {!! Form::label('employee', 'Elija un empleado') !!}
     <select name="employee" id="employee_id" class="form-control">
         @foreach ($employees as $employee)
-            <option value="{{$employee->id}} ">{{$employee->FirstName}} {{$employee->LastName}}</option>
+            <option value="{{$employee->id}} ">{{$employee->Name}} {{$employee->LastName}}</option>
         @endforeach
     </select>
 </div>

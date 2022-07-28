@@ -35,7 +35,7 @@
                 @foreach ($employees as $employee)
                 <tr>
 
-                    <td>{{$employee->FirstName}}</td>
+                    <td>{{$employee->Name}}</td>
                     <td>{{$employee->LastName}}</td>
                     <td>{{$employee->DocumentType}}</td>
                     <td>{{$employee->DocumentNumber}}</td>

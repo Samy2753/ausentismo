@@ -4,9 +4,9 @@
             <div class="row align-items-center g-3">
                 <div class="col-12 col-sm-6">
                     <div class="form-group">
-                        {!! Form::label('FirstName', 'Nombres'); !!}
-                        {!! Form::text('FirstName', null, ['class' => 'form-control'.($errors->has('FirstName') ? ' is-invalid':null), 'placeholder' => 'Ingrese el nombre', 'style' => 'width:100%;']) !!}
-                        @error('FirstName')
+                        {!! Form::label('Name', 'Nombres'); !!}
+                        {!! Form::text('Name', null, ['class' => 'form-control'.($errors->has('Name') ? ' is-invalid':null), 'placeholder' => 'Ingrese el nombre', 'style' => 'width:100%;']) !!}
+                        @error('Name')
                         <span class="invalid-feedback" role="alert">
                             <strong>*{{ $message }}</strong>
                         </span>
