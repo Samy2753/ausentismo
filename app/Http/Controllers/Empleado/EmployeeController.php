@@ -51,6 +51,7 @@ class EmployeeController extends Controller
                 'LastName'=> $request->LastName,
                 'DocumentType'=> $request->DocumentType,
                 'DocumentNumber'=> $request->DocumentNumber,
+                'PhoneNumber'=> $request->PhoneNumber,
                 'BaseSalary'=> $request->BaseSalary,
                 'SalaryDay'=> $SalaryDay,
                 'Position'=> $request->Position,
@@ -65,10 +66,10 @@ class EmployeeController extends Controller
             return redirect()->route('empleado.employees.index');
         }
 
-           catch (Exception $e)
+        catch (Exception $e)
             {
                 return  "Ha ocurrido un error".$e;
-             }
+            }
     }
 
     public function calculosalario($BaseSalary)
@@ -100,6 +101,7 @@ class EmployeeController extends Controller
                 'LastName'=> $request->LastName,
                 'DocumentType'=> $request->DocumentType,
                 'DocumentNumber'=> $request->DocumentNumber,
+                'PhoneNumber'=> $request->PhoneNumber,
                 'BaseSalary'=> $request->BaseSalary,
                 'SalaryDay'=> $SalaryDay,
                 'Position'=> $request->Position,
@@ -125,7 +127,7 @@ class EmployeeController extends Controller
 
     public function destroy(Employee $employee)
     {
-         try{
+        try{
             $employee->update([
 
                 'Status' => '0'
@@ -139,6 +141,6 @@ class EmployeeController extends Controller
         catch(Exception $e) {
             Alert::toast('Error al eliminar','success');
             return redirect()->route('empleado.employees.index');
-              }
+        }
     }
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('LastName');
             $table->string('DocumentType');
             $table->String('DocumentNumber');
+            $table->string('PhoneNumber');
             $table->bigInteger('BaseSalary');
             $table->bigInteger('SalaryDay')->nullable();
             $table->string('Position');

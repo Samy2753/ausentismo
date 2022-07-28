@@ -14,8 +14,8 @@ return [
     |
     */
 
-    'title' => 'SG-SST',
-    'title_prefix' => 'SG-SST',
+    'title' => '',
+    'title_prefix' => '',
     'title_postfix' => '',
 
     /*
@@ -102,12 +102,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'bg-gradient-dark',
     'classes_auth_header' => '',
-    'classes_auth_body' => '',
-    'classes_auth_footer' => '',
-    'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_body' => 'bg-gradient-dark',
+    'classes_auth_footer' => 'text-center',
+    'classes_auth_icon' => 'fa-fw text-light',
+    'classes_auth_btn' => 'btn-flat btn-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -122,14 +122,14 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => '',
-    'classes_brand_text' => '',
+    'classes_brand' => 'bg-white',
+    'classes_brand_text' => 'text-danger',
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-danger elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-info navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -167,8 +167,8 @@ return [
     |
     */
 
-    'right_sidebar' => false,
-    'right_sidebar_icon' => 'fas fa-cogs',
+    'right_sidebar' => true,
+    'right_sidebar_icon' => 'fas fa-home',
     'right_sidebar_theme' => 'dark',
     'right_sidebar_slide' => true,
     'right_sidebar_push' => true,
@@ -238,7 +238,7 @@ return [
         [
             'text' => 'Roles',
             'route'  => 'administrador.roles.index',
-            'icon' => 'fas fa-users fa-fw',
+            'icon' => 'fas fa-universal-access',
             'active'=> ['administrador/roles*'],
             //'can' => 'administrador.roles.index',
             'icon_color' =>'green'
@@ -246,12 +246,12 @@ return [
 
 
 
-         ['header' => 'REGISTRO DE EMPLEADOS'],
+        ['header' => 'REGISTRO DE EMPLEADOS'],
         [
             'text' => 'Empleados',
             'route'  => 'empleado.employees.index',
             'active'=> ['Empleado/employees*'],
-            'icon' => 'fas fa-glasses',
+            'icon' => 'fad fa-users-class',
             'icon_color' =>'yellow'
         ],
         ['header' => 'AUSENTISMO'],
@@ -259,7 +259,7 @@ return [
         [
             'text' => 'Registro ausentismo',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-info-circle',
+            'icon' => 'fad fa-book-reader',
             'icon_color' =>'red'
         ],
 

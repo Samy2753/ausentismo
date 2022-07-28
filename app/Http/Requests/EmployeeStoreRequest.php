@@ -39,6 +39,7 @@ class EmployeeStoreRequest extends FormRequest
             'LastName.required'=> 'Debe ingresar Apellidos',
             'DocumentType.required'=> 'Debe seleccionar un tipo de documento',
             'DocumentNumber.required'=> 'Numero de documento es obligatorio',
+            'PhoneNumber'=>'Numero de telefono es obligatorio',
             'BaseSalary.required'=> 'Debe ingresar salario base',
             'Position.required'=> 'Debe ingresar cargo',
             'Department.required'=> 'Debe ingresar Area',

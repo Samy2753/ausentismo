@@ -14,7 +14,7 @@ class EmployeeSeeder extends Seeder
         Employee::create
         ([
         'Name' => 'Samy',
-        'LastName' => '40',
+        'LastName' => 'Restrepo',
         'DocumentType'=>'CC',
         'DocumentNumber'=>'43254605',
         'PhoneNumber' => '3147963817',

@@ -45,10 +45,10 @@
 
                         <div class="col-md-2">
                             <div class="form-group">
-                                  {!! Form::label('DocumentType', 'Tipo de Documento');  !!}
+                                {!! Form::label('DocumentType', 'Tipo de Documento');  !!}
                                     {!! Form::text('DocumentType', null, ['class' => 'form-control'.($errors->has('DocumentType') ? ' is-invalid':null), 'placeholder' => 'Tipo de documento', 'style' => 'width:100%;']) !!}
 
-                                 {{--    {!! Form::label('DocumentType', 'Tipo de Documento');  !!}
+                                {{--    {!! Form::label('DocumentType', 'Tipo de Documento');  !!}
                                     {!!Form::select('Documento',['Cédula','Tarjeta de identidad', 'Cédula de extranjería','Pasaporte'],null,['class' => 'form-control']) !!} --}}
                                     @error('DocumentType')
                                     <span class="invalid-feedback" role="alert">
@@ -74,11 +74,25 @@
                                         @enderror
                                     </div>
 
-                             </div>
+                            </div>
 
-                             <div class="col-md-2">
-                             <div class="form-group">
-                                {!! Form::label('BaseSalary', 'Salario Basesss');  !!}
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    {!! Form::label('PhoneNumber', 'Número de telefono');  !!}
+                                    {!! Form::text('PhoneNumber', null, ['class' => 'form-control'.($errors->has('PhoneNumber') ? ' is-invalid':null), 'placeholder' => 'No.' , 'style' => 'width:100%;']) !!}
+                                    @error('PhoneNumber')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>*{{ $message }}</strong>
+                                    </span>
+
+                                    @enderror
+                                </div>
+
+                        </div>
+
+                            <div class="col-md-2">
+                            <div class="form-group">
+                                {!! Form::label('BaseSalary', 'Salario Base');  !!}
                                 {!! Form::text('BaseSalary', null, ['class' => 'form-control'.($errors->has('BaseSalary') ? ' is-invalid':null), 'placeholder' => '$', 'style' => 'width:100%;']) !!}
                                 @error('BaseSalary')
                                 <span class="invalid-feedback" role="alert">
