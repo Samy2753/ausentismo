@@ -78,7 +78,7 @@
 
                              <div class="col-md-2">
                              <div class="form-group">
-                                {!! Form::label('BaseSalary', 'Salario Base');  !!}
+                                {!! Form::label('BaseSalary', 'Salario Basesss');  !!}
                                 {!! Form::text('BaseSalary', null, ['class' => 'form-control'.($errors->has('BaseSalary') ? ' is-invalid':null), 'placeholder' => '$', 'style' => 'width:100%;']) !!}
                                 @error('BaseSalary')
                                 <span class="invalid-feedback" role="alert">
