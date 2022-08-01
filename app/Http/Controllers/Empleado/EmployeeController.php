@@ -19,6 +19,14 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class EmployeeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:empleado.employees.index')->only('index');
+        $this->middleware('can:empleado.employees.create')->only('create', 'store');
+        $this->middleware('can:empleado.employees.edit')->only('edit', 'update');
+        $this->middleware('can:empleado.employees.destroy')->only('destroy');
+    }
+
 
     public function index()
     {
@@ -141,6 +149,7 @@ class EmployeeController extends Controller
         catch(Exception $e) {
             Alert::toast('Error al eliminar','success');
             return redirect()->route('empleado.employees.index');
-        }
+
+    }
     }
 }

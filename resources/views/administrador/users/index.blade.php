@@ -18,6 +18,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Correo</th>
+                    <th>Rol</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -27,6 +28,12 @@
                     <tr>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
+                        @if (!empty($user->getRoleNames()))
+                        @foreach ($user->getRoleNames() as $roleName)
+
+                        @endforeach
+                    @endif
+                    <td>{{$roleName}}</td>
                         <td width="10px"><a href="{{route('administrador.users.edit',$user)}}" class="btn btn-primary btn-sm">Editar</a></td>
                         <td width="10px">
                             <form action="{{route('administrador.users.destroy',$user)}}" method="POST">

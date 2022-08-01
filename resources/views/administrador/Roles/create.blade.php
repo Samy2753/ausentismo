@@ -10,9 +10,9 @@
     <div class="card-body">
         {!! Form::open(['route' => 'administrador.roles.store']) !!}
             @include('administrador.roles.partials.form')
-      {!! Form::submit('Crear rol', ['class'=>'btn btn-primary']) !!}
-      {!! Form::close() !!}
-      </div>
+    {!! Form::submit('Crear rol', ['class'=>'btn btn-primary']) !!}
+    {!! Form::close() !!}
+    </div>
 </div>
 @stop
 

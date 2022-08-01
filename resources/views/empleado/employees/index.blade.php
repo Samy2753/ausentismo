@@ -17,6 +17,7 @@
                     <th>Apellido</th>
                     <th>Tipo Documento</th>
                     <th>Numero de Documento</th>
+                    <th>Numero telefonico</th>
                     <th>Salario Base</th>
                     <th>Salario día</th>
                     <th>Cargo</th>
@@ -39,6 +40,7 @@
                     <td>{{$employee->LastName}}</td>
                     <td>{{$employee->DocumentType}}</td>
                     <td>{{$employee->DocumentNumber}}</td>
+                    <td>{{$employee->TelephoneNumber }}</td>
                     <td>{{$employee->BaseSalary}}</td>
                     <td>{{$employee->SalaryDay}}</td>
                     <td>{{$employee->Position}}</td>
@@ -63,7 +65,7 @@
 
             </tbody>
 
-           </table>
+            </table>
         </div>
     </div>
 

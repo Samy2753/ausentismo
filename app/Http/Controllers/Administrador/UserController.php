@@ -41,7 +41,7 @@ public function create()
             $result = Employee::find($request->employee);
             //dd($request->employee);
             $user = User::create([
-                'name' => $result->Name.' '.$result->lastname,
+                'name' => $result->Name.' '.$result->LastName,
                 'email' => $request->email,
                 'status' => '1',
                 'password' => bcrypt($request->password),
@@ -67,10 +67,9 @@ public function create()
 
     public function edit(User $user)
     {
-        //$employees = Employee::pluck('full_name','id');
-        $employees = Employee::all();
+        $employee = Employee::find($user->employee_id);
         $listaRoles = Role::pluck('name','id');
-        return view('administrador.users.edit',compact('user','listaRoles','employees'));
+        return view('administrador.users.edit',compact('user','listaRoles','employee'));
     }
 
 
@@ -87,11 +86,9 @@ public function create()
                 $password = bcrypt($request->password);
             }
             $user->update([
-                'name' => $request->name,
                 'email' => $request->email,
                 'status' => $user->status,
-                'password'=> $password,
-                'employee_id' => $request->employee,
+                'password'=> $password
             ]);
             $user->roles()->sync($request->roles);
             Alert::toast('usuario editado exitosamente', 'success');
