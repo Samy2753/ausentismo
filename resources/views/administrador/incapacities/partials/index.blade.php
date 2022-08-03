@@ -1,10 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuarios')
-@section('content_header')
-<h3>Gestion de usuarios</h3>
-<a href="{{route('administrador.users.create')}}" class="btn btn-primary">Crear usuario</a>
+@section('title', 'Incapacities')
 
+@section('content_header')
+
+@can('administrador.users.create') {{-- Para que solo los roles establecidos puedan ver el boton --}}
+    <a class="btn btn-primary" href="{{route('administrador.users.create')}}">Crear usuario</a>
+@endcan
+<h3>Gestion de incapacidad</h3>
 @stop
 
 @section('content')
@@ -14,9 +17,11 @@
         <table class="table table-striped" id="users">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Rol</th>
+                    <th>Empleado</th>
+                    <th>Incapacidad</th>
+                    <th>fecha inicio incapacidad</th>
+                    <th>fecha finalizacion incapacidad</th>
+                    <th>Tipo de  incapacidad</th>
                     <th></th>
                     <th></th>
                 </tr>

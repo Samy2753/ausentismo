@@ -159,13 +159,13 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #5d0542;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #0056b3;
+  color: rgb(164, 0, 179);
   text-decoration: none;
 }
 
@@ -28306,7 +28306,7 @@ body.text-sm .input-group-text {
 }
 
 .card-cyan:not(.card-outline) > .card-header {
-  background-color: #17a2b8;
+background-color: #17a2b8;
 }
 
 .card-cyan:not(.card-outline) > .card-header,
@@ -28334,7 +28334,7 @@ body.text-sm .input-group-text {
 .bg-cyan > .card-header .btn-tool,
 .bg-gradient-cyan > .card-header .btn-tool,
 .card-cyan:not(.card-outline) > .card-header .btn-tool {
-  color: rgba(255, 255, 255, 0.8);
+  color: red;
 }
 
 .bg-cyan > .card-header .btn-tool:hover,
@@ -43278,7 +43278,7 @@ select.form-control-sm ~ .select2-container--default .select2-selection--multipl
   border-color: #17a2b8 transparent transparent;
 }
 
-.pace-center-simple-cyan .pace {
+.pace-center-simple-red .pace {
   background: #fff;
   border-color: #17a2b8;
 }
@@ -46270,7 +46270,7 @@ blockquote.quote-gray-dark h6 {
 }
 
 .bg-cyan {
-  background-color: #17a2b8 !important;
+  background-color: red!important;
 }
 
 .bg-cyan,
@@ -46424,7 +46424,7 @@ blockquote.quote-gray-dark h6 {
   }
   .table td.bg-info,
   .table th.bg-info {
-    background-color: #17a2b8 !important;
+     !important;
   }
   .table td.bg-info,
   .table td.bg-info > a,
@@ -46998,7 +46998,7 @@ blockquote.quote-gray-dark h6 {
     border-color: #171a1d;
     color: #fff;
   }
-}
+
 
 .bg-gray {
   background-color: #adb5bd;

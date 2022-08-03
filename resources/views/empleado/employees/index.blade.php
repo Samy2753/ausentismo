@@ -40,7 +40,7 @@
                     <td>{{$employee->LastName}}</td>
                     <td>{{$employee->DocumentType}}</td>
                     <td>{{$employee->DocumentNumber}}</td>
-                    <td>{{$employee->TelephoneNumber }}</td>
+                    <td>{{$employee->PhoneNumber }}</td>
                     <td>{{$employee->BaseSalary}}</td>
                     <td>{{$employee->SalaryDay}}</td>
                     <td>{{$employee->Position}}</td>

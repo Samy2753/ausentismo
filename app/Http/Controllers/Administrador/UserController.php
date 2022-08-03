@@ -16,7 +16,10 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->middleware('can:administrador.users.index');
+        $this->middleware('can:administrador.users.index')->only('index');
+        $this->middleware('can:empleado.users.create')->only('create', 'store');
+        $this->middleware('can:administrador.users.edit')->only('edit', 'update');
+        $this->middleware('can:administrador.users.destroy')->only('destroy');
     }
 
     public function index()

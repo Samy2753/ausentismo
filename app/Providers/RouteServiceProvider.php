@@ -41,16 +41,16 @@ class RouteServiceProvider extends ServiceProvider
 
 
              //Rutas para el módulo administrativo
-             Route::middleware('web','auth')
-             ->prefix('administrador')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/administrador.php'));
+            Route::middleware('web','auth')
+            ->prefix('administrador')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/administrador.php'));
 
            //Rutas para el módulo empleaddos
-           Route::middleware('web','auth')
-             ->prefix('empleado')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/empleado.php'));
+            Route::middleware('web','auth')
+            ->prefix('empleado')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/empleado.php'));
 
 
         });
