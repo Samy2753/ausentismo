@@ -1,13 +1,8 @@
 @extends('adminlte::page')
-
-@section('title', 'Incapacities')
-
+@section('title', 'Incapacidad')
 @section('content_header')
-
-@can('administrador.users.create') {{-- Para que solo los roles establecidos puedan ver el boton --}}
-    <a class="btn btn-primary" href="{{route('administrador.users.create')}}">Crear usuario</a>
-@endcan
-<h3>Gestion de incapacidad</h3>
+<a href="{{route('administrador.absenteeism.create')}}" class="btn btn-primary">Crear incapacidad</a>
+<h1>Gestion de incapacidad</h1>
 @stop
 
 @section('content')
@@ -26,28 +21,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach ($users as $user)
-                    <tr>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        @if (!empty($user->getRoleNames()))
-                        @foreach ($user->getRoleNames() as $roleName)
 
-                        @endforeach
-                    @endif
-                    <td>{{$roleName}}</td>
-                        <td width="10px"><a href="{{route('administrador.users.edit',$user)}}" class="btn btn-primary btn-sm">Editar</a></td>
-                        <td width="10px">
-                            <form action="{{route('administrador.users.destroy',$user)}}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
         </table>
     </div>
 </div>

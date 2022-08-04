@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('incapacity_types', function (Blueprint $table) {
             $table->id();
-            $table->incapacityType();
+            $table->string('Incapacity_Type');
             $table->timestamps();
-
         });
     }
 

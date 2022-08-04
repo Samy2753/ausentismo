@@ -12,8 +12,8 @@
 </div>
 
 <div class="form-group">
-        {!! Form::label('incapacity_tipe') !!}
-        {!! Form::select('incapacity_tipe', $listaIncapacitades, null, ['class' => 'form-control', 'placeholder' => '-- Eliga tipo de incapacidad --', 'style' => 'width:100%;']) !!}
+        {!! Form::label('incapacity_type') !!}
+        {!! Form::select('incapacity_type', $listaAbsenteeism, null, ['class' => 'form-control', 'placeholder' => '-- Eliga tipo de incapacidad --', 'style' => 'width:100%;']) !!}
 
 </div>
 

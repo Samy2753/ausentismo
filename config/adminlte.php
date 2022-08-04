@@ -258,7 +258,8 @@ return [
 
         [
             'text' => 'Registro ausentismo',
-            'url'  => 'admin/settings',
+            'route'  => 'administrador.absenteeism.index',
+            'active'=> ['administrador/absenteeism*'],
             'icon' => 'fas fa-file-alt',
             'icon_color' =>'red'
         ],

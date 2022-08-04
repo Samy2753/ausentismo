@@ -52,6 +52,12 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace)
             ->group(base_path('routes/empleado.php'));
 
+             //Rutas para el módulo empleaddos
+            Route::middleware('web','auth')
+            ->prefix('absenteeism')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/absenteeism.php'));
+
 
         });
     }

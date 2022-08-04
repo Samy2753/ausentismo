@@ -9,8 +9,8 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        {!! Form::model($user,['route' => ['administrador.users.update',$user], 'method'=>'put']) !!}
-            @include('administrador.users.partials.form')
+        {!! Form::model($user,['route' => ['administrador.absenteeism.update',$user], 'method'=>'put']) !!}
+            @include('administrador.absenteeism.partials.index'')
 
             {!! Form::submit('Editar usuario',['class' =>'btn btn-primary btn-md']) !!}
             {!! Form::close() !!}
