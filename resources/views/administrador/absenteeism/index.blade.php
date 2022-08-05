@@ -9,23 +9,41 @@
 @include('sweetalert::alert')
 <div class="card">
     <div class="card-body">
-        <table class="table table-striped" id="users">
+        <table class="table table-striped" id="absenteeisms">
             <thead>
                 <tr>
                     <th>Empleado</th>
-                    <th>Incapacidad</th>
+                    <th>Tipo de incapacidad</th>
                     <th>fecha inicio incapacidad</th>
                     <th>fecha finalizacion incapacidad</th>
-                    <th>Tipo de  incapacidad</th>
-                    <th></th>
-                    <th></th>
+                    <th>Clasificacion</th>
                 </tr>
             </thead>
+            <tbody>
+                @foreach ($absenteeisms as $absenteeism)
+                    <tr>
+                        <td>{{$absenteeism->NameEmployeer}}</td>
+                        <td>{{$listaIncapacidades[$absenteeism->Incapacity_type_id]}}</td>
+                        <td>{{$absenteeism->Start_date}}</td>
+                        <td>{{$absenteeism->End_date}}</td>
+                        <td>{{$absenteeism->Clasification}}</td>
 
+                        <td width="10px"><a href="{{route('administrador.absenteeism.edit',$absenteeism)}}" class="btn btn-primary btn-sm">Editar</a></td>
+                        <td width="10px">
+                            <form action="{{route('administrador.absenteeism.destroy',$absenteeism)}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
         </table>
     </div>
 </div>
 @stop
+
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
@@ -34,7 +52,7 @@
 @push('js')
 <script>
     $(document).ready(function () {
-        $('#users').DataTable({
+        $('#absenteeisms').DataTable({
             responsive:true,
             autoWidth:false,
             "language":{

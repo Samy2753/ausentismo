@@ -30,7 +30,7 @@
 
                 </tr>
 
-           </thead>
+        </thead>
             <tbody>
 
                 @foreach ($employees as $employee)

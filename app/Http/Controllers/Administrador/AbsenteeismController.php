@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Administrador;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AbsenteeismStoreRequest;
-use App\Models\employee;
+use App\Models\Employee;
+use App\Models\incapacity_type;
 use App\Models\absenteeism;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -17,31 +19,37 @@ class AbsenteeismController extends Controller
 
     public function index()
     {
-
-        return view('administrador.absenteeism.index');
+        $absenteeisms = absenteeism::all();
+        $listaIncapacidades = incapacity_type::pluck('incapacity_type','id');
+        return view('administrador.absenteeism.index',compact('absenteeisms','listaIncapacidades'));
     }
 
 
     public function create()
     {
-        return view('administrador.absenteeism.create');
+        $employees = Employee::all();
+        $listaIncapacidades = incapacity_type::pluck('incapacity_type','id');
+        return view('administrador.absenteeism.create',compact('listaIncapacidades','employees'));
     }
 
 
     public function store(AbsenteeismStoreRequest $request)
     {
         Try{
-            $result = Employee::find($request->employee);
+
+            $result = Employee::find($request->NameEmployeer);
             absenteeism::create([
-                'name' => $result->Name.' '.$result->LastName,
-                'incapacity_type'=>$request->incapacity_type,
-                'start_date'=>$request->start_date,
-                'end_date'=>$request->end_date,
-                'incapacity_type_id'=>$request->absenteeism,
-                'employee_id'=>$request->employee
+                'NameEmployeer' => $result->Name.' '.$result->LastName,
+                'DocumentType'=>$result->DocumentType,
+                'DocumentNumber'=>$result->DocumentNumber,
+                'Start_date'=>$request->Start_date,
+                'End_date'=>$request->End_date,
+                'Incapacity_type_id'=>$request->Incapacity_type_id,
+                'Clasification'=>$request->Clasification,
+
             ]);
             Alert::toast('usuario guardado exitosamente', 'success');
-            return redirect()->route('administrador.users.index');
+            return redirect()->route('administrador.absenteeism.index');
         }
         catch(Exception $e)
         {
@@ -52,7 +60,8 @@ class AbsenteeismController extends Controller
 
     public function show($id)
     {
-        //
+        $result = incapacity_type::find(2);
+        print_r($result);
     }
 
     public function edit($id)
