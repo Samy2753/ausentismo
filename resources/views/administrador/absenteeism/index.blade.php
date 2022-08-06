@@ -22,7 +22,7 @@
             <tbody>
                 @foreach ($absenteeisms as $absenteeism)
                     <tr>
-                        <td>{{$absenteeism->NameEmployeer}}</td>
+                        <td>{{$absenteeism->NameEmployee}}</td>
                         <td>{{$listaIncapacidades[$absenteeism->Incapacity_type_id]}}</td>
                         <td>{{$absenteeism->Start_date}}</td>
                         <td>{{$absenteeism->End_date}}</td>

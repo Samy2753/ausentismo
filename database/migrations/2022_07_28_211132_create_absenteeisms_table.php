@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('absenteeism', function (Blueprint $table) {
+        Schema::create('absenteeisms', function (Blueprint $table) {
             $table->id();
-            $table->string('NameEmployeer');
+            $table->string('NameEmployee');
             $table->string('DocumentType');
             $table->String('DocumentNumber');
             $table->date('Start_date');
             $table->date('End_date');
             $table->unsignedBigInteger('Incapacity_type_id');
-            $table->foreign('Incapacity_type_id')->references('id')->on('absenteeism')->onDelete('cascade');
+            $table->foreign('Incapacity_type_id')->references('id')->on('absenteeisms')->onDelete('cascade');
             $table->string('Clasification');
             $table->timestamps();
 

@@ -9,7 +9,7 @@ class absenteeism extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'NameEmployeer',
+        'NameEmployee',
         'DocumentType',
         'DocumentNumber',
         'Start_date',
@@ -21,5 +21,7 @@ class absenteeism extends Model
         'Start_date' => 'datetime',
         'End_date' => 'datetime',
     ];
-
+    protected $appends = [
+        'NameEmployee',
+    ];
 }

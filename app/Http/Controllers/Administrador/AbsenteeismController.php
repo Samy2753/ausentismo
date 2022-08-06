@@ -37,9 +37,9 @@ class AbsenteeismController extends Controller
     {
         Try{
 
-            $result = Employee::find($request->NameEmployeer);
+            $result = Employee::find($request->NameEmployee);
             absenteeism::create([
-                'NameEmployeer' => $result->Name.' '.$result->LastName,
+                'NameEmployee' => $result->Name.' '.$result->LastName,
                 'DocumentType'=>$result->DocumentType,
                 'DocumentNumber'=>$result->DocumentNumber,
                 'Start_date'=>$request->Start_date,
@@ -64,19 +64,47 @@ class AbsenteeismController extends Controller
         print_r($result);
     }
 
-    public function edit($id)
+    public function edit(Absenteeism $absenteeism)
     {
-        //
+        $employee = Employee::find($absenteeism->employee_id);
+        $listaIncapacidades = incapacity_type::pluck('incapacity_type','id');
+        return view('administrador.absenteeism.edit',compact('absenteeism'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Absenteeism $absenteeism)
     {
-        //
+        try
+        {
+
+            $absenteeism->update([
+
+                'NameEmployee'=> $request->NameEmployee,
+                'DocumentType'=> $request->DocumentType,
+                'DocumentNumber'=> $request->DocumentNumber,
+                'Start_date'=> $request->Start_date,
+                'End_date'=> $request->End_date,
+                'Incapacity_type_id'=> $request->Incapacity_type_id,
+                'Clasification'=> $request-> Clasification,
+
+
+            ]);
+            Alert::toast('Empleado editado con exito','success');
+            return redirect()->route('administrador.absenteeism.index');
+        }
+
+        catch (\Exception $e)
+        {
+
+            Alert::toast('Ocurrio un error al actualizar','error');
+            return redirect()->route('administrador.absenteeism.index');
+        }
     }
 
 
-    public function destroy($id)
+    public function destroy(Absenteeism $absenteeism)
     {
-        //
+        $absenteeism->delete();
+        Alert::toast('absenteeism eliminado correctamente','success');
+        return redirect()->route('administrador.absenteeism.index'); //
     }
 }

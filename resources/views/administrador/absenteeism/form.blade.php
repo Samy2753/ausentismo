@@ -1,10 +1,10 @@
 @if (!empty($employee))
-{!! Form::label('NameEmployeer', 'Empleado') !!}
-{!! Form::text('NameEmployeer', $employee->full_name , ['class' => 'form-control', 'readonly']) !!}
+{!! Form::label('NameEmployee', 'Empleado') !!}
+{!! Form::text('NameEmployee', $employee->full_name , ['class' => 'form-control', 'readonly']) !!}
 @else
 <div class="form-group">
-    {!! Form::label('NameEmployeer', 'Eliga un empleado') !!}
-    <select name="NameEmployeer" id="NameEmployeer" class="form-control">
+    {!! Form::label('NameEmployee', 'Eliga un empleado') !!}
+    <select name="NameEmployee" id="NameEmployee" class="form-control">
         @foreach ($employees as $employee)
             <option value="{{$employee->id}} ">{{$employee->full_name}}</option>
         @endforeach
