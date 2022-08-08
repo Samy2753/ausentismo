@@ -17,6 +17,21 @@
     {!! Form::select('Incapacity_type_id', $listaIncapacidades, null, ['class' => 'form-control', 'placeholder' => '-- Eliga tipo de incacidad --', 'style' => 'width:100%;','id'=>'Incapacity_type_id','name'=>'Incapacity_type_id']) !!}
 </div>
 
+@if (!empty($illness))
+{!! Form::label('Illness', 'Enfermedad') !!}
+{!! Form::text('Illness', $cie_10->Description, ['class' => 'form-control', 'readonly']) !!}
+@else
+<div class="form-group">
+    {!! Form::label('Illness', 'Seleccione enfermedad') !!}
+    <select name="Illness" id="Illness" class="form-control">
+        <option value="N/A">N/A</option>
+        @foreach ($cie_10s as $cie_10)
+            <option value="{{$cie_10->Code}} ">{{$cie_10->Description}}</option>
+        @endforeach
+    </select>
+</div>
+@endif
+
 <h6>Inicio incapacidad</h6>
 <input type="date" name="Start_date" id="Start_date" class='form-control'>
 
@@ -36,4 +51,5 @@
 <br>
 
 </select>
+
 

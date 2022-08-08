@@ -15,6 +15,7 @@ class absenteeism extends Model
         'Start_date',
         'End_date',
         'Incapacity_type_id',
+        'Illness',
         'Clasification',
     ];
     protected $casts = [

@@ -7,6 +7,7 @@ use App\Http\Requests\AbsenteeismStoreRequest;
 use App\Models\Employee;
 use App\Models\incapacity_type;
 use App\Models\absenteeism;
+use App\Models\cie_10;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -20,16 +21,19 @@ class AbsenteeismController extends Controller
     public function index()
     {
         $absenteeisms = absenteeism::all();
+        $cie_10s = cie_10::pluck('Description','id');
+        $cie_10s_idx = cie_10::pluck('Code','id');
         $listaIncapacidades = incapacity_type::pluck('incapacity_type','id');
-        return view('administrador.absenteeism.index',compact('absenteeisms','listaIncapacidades'));
+        return view('administrador.absenteeism.index',compact('absenteeisms','listaIncapacidades','cie_10s','cie_10s_idx'));
     }
 
 
     public function create()
     {
+        $cie_10s = cie_10::all();
         $employees = Employee::all();
         $listaIncapacidades = incapacity_type::pluck('incapacity_type','id');
-        return view('administrador.absenteeism.create',compact('listaIncapacidades','employees'));
+        return view('administrador.absenteeism.create',compact('listaIncapacidades','employees','cie_10s'));
     }
 
 
@@ -45,6 +49,8 @@ class AbsenteeismController extends Controller
                 'Start_date'=>$request->Start_date,
                 'End_date'=>$request->End_date,
                 'Incapacity_type_id'=>$request->Incapacity_type_id,
+                'Illness'=>$request->Illness,
+
                 'Clasification'=>$request->Clasification,
 
             ]);

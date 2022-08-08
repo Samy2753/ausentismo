@@ -25,7 +25,7 @@ class EmployeeSeeder extends Seeder
         'EPS'=>'Sura',
         'AFP'=>'Comfama',
         'ARL'=>'Sura',
-        'Status' => '1',
+        'Status' => '0',
 
         ]);
 

@@ -7,9 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class cie_10 extends Model
 {
-    protected $fillable = [
-        'Code',
-        'Description',
-        'Gender',
-    ];
+    use HasFactory;
 }

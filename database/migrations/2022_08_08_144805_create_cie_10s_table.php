@@ -13,17 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('absenteeisms', function (Blueprint $table) {
+        Schema::create('cie_10s', function (Blueprint $table) {
             $table->id();
-            $table->string('NameEmployee');
-            $table->string('DocumentType');
-            $table->String('DocumentNumber');
-            $table->date('Start_date');
-            $table->date('End_date');
-            $table->unsignedBigInteger('Incapacity_type_id');
-            $table->string('Clasification');
+            $table->string('Code')->unique();
+            $table->string('Description');
+            $table->string('Gender');
             $table->timestamps();
-
         });
     }
 
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('absenteeism');
+        Schema::dropIfExists('cie_10s');
     }
 };
