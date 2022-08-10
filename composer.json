@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "dompdf/dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "infyomlabs/laravel-ui-adminlte": "^4.0",
         "jeroennoten/laravel-adminlte": "^3.8",

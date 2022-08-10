@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('title', 'Incapacidad')
 @section('content_header')
-<a href="{{route('administrador.absenteeism.create')}}" class="btn btn-primary">PDF</a>
+<a href="{{route('administrador.absenteeism.pdf')}}" class="btn btn-primary">PDF</a>
 <a href="{{route('administrador.absenteeism.create')}}" class="btn btn-primary">Crear incapacidad</a>
 <h1>Gestion de incapacidad</h1>
 @stop
@@ -22,6 +22,7 @@
                 </tr>
             </thead>
             <tbody>
+
                 @php
                 $cie_10s_idx->prepend('N/A');
                 $arr_idx = $cie_10s_idx->toArray();
@@ -36,7 +37,8 @@
                 @endphp
                 @else
                 @php
-                $nombre_enfermedad='N/A'
+                $nombre_enfermedad='N/A';
+
                 @endphp
                 @endif
 

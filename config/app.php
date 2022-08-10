@@ -183,6 +183,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
 
         /*
@@ -214,6 +216,7 @@ return [
     */
     'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     'aliases' => Facade::defaultAliases()->merge([
+    'PDF'=> Barryvdh\DomPDF\Facade::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

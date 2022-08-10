@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        {!! Form::model($employee,['route' => ['empleado.employees.update',$employee], 'method'=>'put']) !!}
+        {!! Form::model($employee,['route'=> ['empleado.employees.update',$employee], 'method'=>'put']) !!}
             @include('empleado.employees.partials.form')
 
             {!! Form::submit('Editar empleado',['class' =>'btn btn-primary btn-md']) !!}

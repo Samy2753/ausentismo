@@ -15,3 +15,5 @@ Route::resource('roles' ,RoleController::class)->names('administrador.roles');
 Route::resource('employees' ,EmployeeController::class)->names('administrador.employees');
 //Rutas para la funcionalidad de la gestion de incapacidades
 Route::resource('absenteeism' ,AbsenteeismController::class)->names('administrador.absenteeism');
+
+

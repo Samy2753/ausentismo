@@ -8,11 +8,14 @@ use App\Models\Employee;
 use App\Models\incapacity_type;
 use App\Models\absenteeism;
 use App\Models\cie_10;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\Permission\Models\Permission;
 use Exception;
+use PDF;
 
 
 class AbsenteeismController extends Controller
@@ -27,9 +30,27 @@ class AbsenteeismController extends Controller
         return view('administrador.absenteeism.index',compact('absenteeisms','listaIncapacidades','cie_10s','cie_10s_idx'));
     }
 
+    public function pdf()
+    {
+
+        $absenteeisms = absenteeism::paginate();
+        $cie_10s = cie_10::all();
+        $employees = Employee::all();
+        $cie_10s_idx = cie_10::pluck('Code','id');
+        $listaIncapacidades = incapacity_type::pluck('incapacity_type','id');
+        $pdf = PDF::loadView('administrador.absenteeism.pdf',['absenteeisms'=>$absenteeisms],compact('absenteeisms','listaIncapacidades','cie_10s','cie_10s_idx'));
+        return $pdf->download('absenteeism.pdf');
+        //return $pdf->stream();
+        //return view('administrador.absenteeism.pdf',compact('absenteeisms','listaIncapacidades','cie_10s','cie_10s_idx'));
+
+
+
+
+    }
 
     public function create()
     {
+        $absenteeisms = absenteeism::all();
         $cie_10s = cie_10::all();
         $employees = Employee::all();
         $listaIncapacidades = incapacity_type::pluck('incapacity_type','id');
@@ -72,21 +93,21 @@ class AbsenteeismController extends Controller
 
     public function edit(Absenteeism $absenteeism)
     {
-        $employee = Employee::find($absenteeism->employee_id);
+        $cie_10s =cie_10::all();
+        $employees = Employee::find($absenteeism->employee_id);
+
         $listaIncapacidades = incapacity_type::pluck('incapacity_type','id');
-        return view('administrador.absenteeism.edit',compact('absenteeism'));
+        return view('administrador.absenteeism.edit',compact('listaIncapacidades','employees','cie_10s','absenteeism'));
     }
 
     public function update(Request $request, Absenteeism $absenteeism)
     {
         try
         {
-
+            print_r($absenteeism);
             $absenteeism->update([
 
-                'NameEmployee'=> $request->NameEmployee,
-                'DocumentType'=> $request->DocumentType,
-                'DocumentNumber'=> $request->DocumentNumber,
+
                 'Start_date'=> $request->Start_date,
                 'End_date'=> $request->End_date,
                 'Incapacity_type_id'=> $request->Incapacity_type_id,
@@ -100,7 +121,7 @@ class AbsenteeismController extends Controller
 
         catch (\Exception $e)
         {
-
+            print_r($e);
             Alert::toast('Ocurrio un error al actualizar','error');
             return redirect()->route('administrador.absenteeism.index');
         }

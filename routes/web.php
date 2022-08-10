@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::middleware(['auth:sanctum','verified'])->get('/',[HomeController::class, 'index'])->name('name');
 
 Route::middleware([]);

@@ -24,5 +24,15 @@ class absenteeism extends Model
     ];
     protected $appends = [
         'NameEmployee',
+
+
     ];
+    public function getNameEmployeeAttribute()
+    {
+        return "{$this->Name} {$this->Employe}";
+    }
+
+
+
+
 }
