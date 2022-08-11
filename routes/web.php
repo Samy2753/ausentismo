@@ -22,3 +22,4 @@ Route::middleware(['auth:sanctum','verified'])->get('/',[HomeController::class, 
 Route::middleware([]);
 
 
+

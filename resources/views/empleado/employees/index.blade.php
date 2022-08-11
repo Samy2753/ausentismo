@@ -3,6 +3,7 @@
 @section('title', 'Empleados')
 @section('content_header')
 <h3>Gestión de usuarios</h3>
+<a href="{{route('empleado.employees.pdf')}}" class="btn btn-primary">PDF</a>
 <a href="{{route('empleado.employees.create')}}" class="btn btn-primary">Crear empleado</a>
 @stop
 

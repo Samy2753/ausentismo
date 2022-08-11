@@ -27,10 +27,10 @@ class absenteeism extends Model
 
 
     ];
-    public function getNameEmployeeAttribute()
-    {
-        return "{$this->Name} {$this->Employe}";
-    }
+    //public function getNameEmployeeAttribute()
+    //{
+      //  return "{$this->Name} {$this->Employee}";
+    //}//
 
 
 

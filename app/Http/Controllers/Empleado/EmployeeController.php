@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\EmployeeStoreRequest;
 use Illuminate\Http\Request;
 use App\Models\employee;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Exception;
 use Laravel\Sanctum\Sanctum;
 use Monolog\Handler\SamplingHandler;
@@ -14,6 +16,7 @@ use phpDocumentor\Reflection\Types\This;
 use PhpParser\Node\Expr\Cast\Double;
 use Prophecy\Doubler\Doubler;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 
 
@@ -32,6 +35,13 @@ class EmployeeController extends Controller
     return view('empleado.employees.index',compact('employees'));
     }
 
+    public function pdf()
+    {
+
+        $employees= Employee::paginate();
+        $pdf = PDF::loadView('empleado.employees.pdf',compact('employees'));
+        return $pdf->download('empleado.employees.pdf');
+    }
 
     public function create()
     {
@@ -92,6 +102,7 @@ class EmployeeController extends Controller
     {
         return view('empleado.employees.edit',compact('employee'));
     }
+
 
 
     public function update(Request $request, Employee $employee)

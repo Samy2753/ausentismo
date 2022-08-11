@@ -6,25 +6,39 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
 use App\Models\Employee;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Exception;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\Permission\Models\Role;
+use PDF;
 
 class UserController extends Controller
 {
 
     public function __construct()
     {
-        
+
     }
 
     public function index()
     {
         $users = User::where('status','1')->get();
         return view('administrador.users.index', compact('users'));
+
     }
 
+    public function pdf()
+    {
+
+        $users = User::paginate();
+        $pdf = PDF::loadView('administrador.users.pdf',compact('users'));
+        return $pdf->download('users.pdf');
+        //return $pdf->stream();
+        //return view('administrador.absenteeism.pdf',compact('absenteeisms','listaIncapacidades','cie_10s','cie_10s_idx'));
+
+    }
 public function create()
     {
         //$employees =  Employee::pluck('full_name','id');

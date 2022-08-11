@@ -35,7 +35,6 @@ class AbsenteeismController extends Controller
 
         $absenteeisms = absenteeism::paginate();
         $cie_10s = cie_10::all();
-        $employees = Employee::all();
         $cie_10s_idx = cie_10::pluck('Code','id');
         $listaIncapacidades = incapacity_type::pluck('incapacity_type','id');
         $pdf = PDF::loadView('administrador.absenteeism.pdf',['absenteeisms'=>$absenteeisms],compact('absenteeisms','listaIncapacidades','cie_10s','cie_10s_idx'));

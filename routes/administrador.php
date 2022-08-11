@@ -16,4 +16,6 @@ Route::resource('employees' ,EmployeeController::class)->names('administrador.em
 //Rutas para la funcionalidad de la gestion de incapacidades
 Route::resource('absenteeism' ,AbsenteeismController::class)->names('administrador.absenteeism');
 
-
+//Rutas para la funcionalidad del pdf
+Route::get('administrador/users/pdf',[App\Http\Controllers\Administrador\UserController::class, 'pdf'] )->name('administrador.users.pdf');
+Route::get('empleado/employees/pdf',[App\Http\Controllers\Empleado\EmployeeController::class, 'pdf'] )->name('empleado.employees.pdf');

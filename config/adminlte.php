@@ -260,8 +260,8 @@ return [
             'text' => 'Registro ausentismo',
             'route'  => 'administrador.absenteeism.index',
             'active'=> ['administrador/absenteeism*'],
-            'icon' => 'fas fa-file-alt',
-            'icon_color' =>'red'
+            'icon' => 'fas fa-fw fa-notes-medical',
+            'icon_color' =>'white'
         ],
 
         ['header' => 'REPORTES'],

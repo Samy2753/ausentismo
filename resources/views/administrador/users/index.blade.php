@@ -2,7 +2,8 @@
 
 @section('title', 'Usuarios')
 @section('content_header')
-<h3>Gestion de usuarios</h3>
+<h3>Reporte de usuarios</h3>
+<a href="{{route('administrador.users.pdf')}}" class="btn btn-primary">PDF</a>
 <a href="{{route('administrador.users.create')}}" class="btn btn-primary">Crear usuario</a>
 
 @stop
@@ -12,7 +13,21 @@
 <div class="card">
     <div class="card-body">
         <table class="table table-striped" id="users">
-            <thead>
+            {{-- New User Modal --}}
+            <div class="modal fade" id="userModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                aria-labelledby="userModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="userModalLabel">Usuario</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Correo</th>
